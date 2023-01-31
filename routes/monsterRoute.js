@@ -24,11 +24,14 @@ monsterRouter.post("/add", (req, res) => {
   });
 });
 
-app.get("/:id", (req,res) => {
-  //     const id = req.params.id;
-  // res.send(`${monsters[id-1].name} ${monsters[id-1].level} ${monsters[id-1].description}`); //puede ser esta o la de abajo.
-  res.send(`MON MONSTER ${monsters[req.params.id-1].name} ${monsters[req.params.id-1].level} ${monsters[req.params.id-1].description}`)
-  
-  });
+monsterRouter.route("/:id").get((req,res) => {
+  Monster.findById(req.params.id, (err, monster) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(monster);
+    }
+  })
+}); 
 
 module.exports = monsterRouter;

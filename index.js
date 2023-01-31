@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 const Monster = require('./models/monster');
 
 
-app.use("/monsters", require("./routes/monsters"));
+app.use("/monsters", require("./routes/monsterRoute"));
 
 
 app.listen(port,()=> console.log("BatlleCruiser Operationnes Sir !!!"))
