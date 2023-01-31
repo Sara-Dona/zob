@@ -24,7 +24,8 @@ monsterRouter.post("/add", (req, res) => {
   });
 });
 
-monsterRouter.route("/:id").get((req,res) => {
+monsterRouter.route("/:id")
+.get((req,res) => {
   Monster.findById(req.params.id, (err, monster) => {
     if (err) {
       console.log(err);
@@ -32,6 +33,15 @@ monsterRouter.route("/:id").get((req,res) => {
       res.send(monster);
     }
   })
-}); 
+})
+.put((req,res) => {
+  Monster.findByIdAndUpdate(req.params.id, req.body, (err, monster) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(monster);
+    }
+  })
+})
 
 module.exports = monsterRouter;

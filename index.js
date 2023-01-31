@@ -17,7 +17,7 @@ async function main() {
 }
 app.use(express.urlencoded({ extended: true }));
 
-const Monster = require('./models/monster');
+// const Monster = require('./models/monster');
 
 
 app.use("/monsters", require("./routes/monsterRoute"));
