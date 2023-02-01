@@ -21,4 +21,5 @@ const monsterSchema = new Schema({
 ```
 
 - [x] CRUD API - Update
+- [x] CRUD API - Delete
 

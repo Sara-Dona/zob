@@ -44,4 +44,14 @@ monsterRouter.route("/:id")
   })
 })
 
+.delete((req,res) => {
+  Monster.findByIdAndRemove(req.params.id, (err, monster) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send('Done :)');
+    }
+  })
+})
+
 module.exports = monsterRouter;
